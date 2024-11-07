@@ -3,3 +3,4 @@
  Kelas 5A Reg BJB
  
 ![alt text](https://github.com/Salwaazkiya/AplikasiCekNomorGenapGanjil/blob/main/Screenshot%20Hasil/Screenshot%201.png?raw=true)
+![alt text](https://github.com/Salwaazkiya/AplikasiCekNomorGenapGanjil/blob/main/Screenshot%20Hasil/Screenshot%202.png?raw=true)
