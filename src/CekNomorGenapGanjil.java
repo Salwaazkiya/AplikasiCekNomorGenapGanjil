@@ -1,4 +1,6 @@
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import javax.swing.JOptionPane;
 
 /*
@@ -17,6 +19,17 @@ public class CekNomorGenapGanjil extends javax.swing.JFrame {
      */
     public CekNomorGenapGanjil() {
         initComponents();
+        
+        txtAngka.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                txtAngka.setText(""); //untuk fokus
+            }
+            @Override
+            public void focusLost(FocusEvent e) {
+                // Tidak perlu melakukan apa-apa saat kehilangan fokus
+            }
+        });
     }
 
     /**
@@ -36,6 +49,8 @@ public class CekNomorGenapGanjil extends javax.swing.JFrame {
         txtAngka = new javax.swing.JTextField();
         btnCekAngka = new javax.swing.JButton();
         labelCekAngka = new javax.swing.JLabel();
+        btnHapus = new javax.swing.JButton();
+        btnKeluar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,14 +66,17 @@ public class CekNomorGenapGanjil extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cek Nomor Genap Ganjil"));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel2.setText("Input Angka");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(70, 80, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(88, 48, 0, 0);
         jPanel2.add(jLabel2, gridBagConstraints);
 
+        txtAngka.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtAngka.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtAngkaKeyTyped(evt);
@@ -68,13 +86,14 @@ public class CekNomorGenapGanjil extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridheight = 3;
         gridBagConstraints.ipadx = 56;
-        gridBagConstraints.ipady = 1;
+        gridBagConstraints.ipady = -1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(67, 17, 0, 14);
+        gridBagConstraints.insets = new java.awt.Insets(85, 17, 0, 0);
         jPanel2.add(txtAngka, gridBagConstraints);
 
+        btnCekAngka.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnCekAngka.setText("Cek Angka");
         btnCekAngka.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,22 +101,50 @@ public class CekNomorGenapGanjil extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipady = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(61, 18, 0, 97);
-        jPanel2.add(btnCekAngka, gridBagConstraints);
-
-        labelCekAngka.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        labelCekAngka.setText("Hasil Angka");
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 18, 48, 0);
+        gridBagConstraints.insets = new java.awt.Insets(21, 17, 42, 0);
+        jPanel2.add(btnCekAngka, gridBagConstraints);
+
+        labelCekAngka.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(85, 18, 0, 0);
         jPanel2.add(labelCekAngka, gridBagConstraints);
+
+        btnHapus.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(21, 12, 42, 0);
+        jPanel2.add(btnHapus, gridBagConstraints);
+
+        btnKeluar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnKeluar.setText("Keluar");
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeluarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(21, 18, 42, 190);
+        jPanel2.add(btnKeluar, gridBagConstraints);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
@@ -108,22 +155,49 @@ public class CekNomorGenapGanjil extends javax.swing.JFrame {
         String input = txtAngka.getText();
         try {
             int angka = Integer.parseInt(input);
+            boolean isPrima = cekPrima(angka);
+            StringBuilder hasil = new StringBuilder();
+
             if (angka % 2 == 0) {
-                labelCekAngka.setText("Angka genap");
+                hasil.append("Angka genap");
             } else {
-                labelCekAngka.setText("Angka ganjil");
+                hasil.append("Angka ganjil");
             }
+
+            if (isPrima) {
+                hasil.append(" dan bilangan prima");
+            }
+
+            JOptionPane.showMessageDialog(this, hasil.toString(), "Hasil", JOptionPane.INFORMATION_MESSAGE);
+            labelCekAngka.setText(hasil.toString());
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Input harus berupa angka!", "Error", JOptionPane.ERROR_MESSAGE);
-}
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCekAngkaActionPerformed
-
+    
+    private boolean cekPrima(int angka) {
+        if (angka < 2) return false;
+        for (int i = 2; i <= Math.sqrt(angka); i++) {
+            if (angka % i == 0) return false;
+        }
+        return true;
+    }
+    
     private void txtAngkaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAngkaKeyTyped
         char karakter = evt.getKeyChar(); // Memeriksa karakter bukan angka
         if (!Character.isDigit(karakter)) {
             evt.consume();}      // TODO add your handling code here:
     }//GEN-LAST:event_txtAngkaKeyTyped
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        txtAngka.setText("");
+        labelCekAngka.setText("Hasil Angka");        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,6 +236,8 @@ public class CekNomorGenapGanjil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCekAngka;
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnKeluar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
